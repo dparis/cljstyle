@@ -7,6 +7,7 @@
     [cljstyle.format.ns :as ns]
     [cljstyle.format.type :as type]
     [cljstyle.format.var :as var]
+    [cljstyle.format.vertical-alignment :as alignment]
     [cljstyle.format.whitespace :as ws]
     [clojure.string :as str]
     [rewrite-clj.node :as n]
@@ -40,6 +41,9 @@
 
     (:indentation? config true)
     (indent/reindent config)
+
+    (:vertical-alignment? config false)
+    (alignment/realign config)
 
     (:rewrite-namespaces? config true)
     (ns/rewrite-namespaces config)
